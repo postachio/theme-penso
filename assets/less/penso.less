@@ -1,0 +1,481 @@
+/**
+ * Page styles
+ */
+
+@import url(http://postach.io/static/themes/_assets/less/elements.less);
+@import url(http://postach.io/static/themes/_assets/less/mixins.less);
+@import url(http://postach.io/static/themes/_assets/less/palette.less);
+@import url(http://postach.io/static/themes/_assets/bootstrap/less/bootstrap.less);
+
+/* ======================
+ *  Local Variables/Overrides
+ * ====================== */
+@FontAwesomePath :    "http://postach.io/static/themes/_assets/fontawesome/font"; // Overrride the default font-awesome path
+
+@bodyFontFamily : "Roboto Slab", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@bodyFontSize   : 16px;
+
+@bodyColor      : @grey-85;
+@bodyLinkColor  : @pure-blue;
+
+@baseLineHeight : 1.625;
+
+@import url('http://fonts.googleapis.com/css?family=Vollkorn:400italic|Roboto+Slab|Fjalla+One&amp;subset=latin,latin-ext');
+
+// Override/Add centered pills for Bootstrap
+.centered-pills {
+    .align-center();
+    ul.nav-pills {
+        display: inline-block;
+    }
+    li {
+        display: inline;
+    }
+    a {
+        .pull-left();
+    }
+}
+
+/* ====================== */
+
+/* Set viewport to device width for responsive view */
+@-webkit-viewport { width: device-width }
+@-moz-viewport { width: device-width }
+@-ms-viewport { width: device-width }
+@-o-viewport { width: device-width }
+@viewport { width: device-width }
+
+* {
+    // Don't hate the universal selector!
+    // Set box-sizing: border-box; on every element
+    // http://paulirish.com/2012/box-sizing-border-box-ftw/
+    .box-sizing();
+    background-repeat: no-repeat; // Set all images to no-repeat so you don't have to individually
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+}
+
+html,
+body {
+    min-height: 100%
+}
+
+body {
+    .retina-font-weight();
+    .padding-top(20px);
+    .padding-bottom(20px);
+    font-size: 100%; // Set root font-size for REM units
+    font-family: @bodyFontFamily;
+    line-height: @baseLineHeight; // unitless universal line-height for document - http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
+    color: @bodyColor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    .margin((@baseLineHeight / 2px), 0);
+    color: @bodyColor;
+    line-height: @baseLineHeight;
+    &.title {
+        color: @grey-65;
+        .border-bottom-width(1px);
+        border-bottom: solid @grey-20;
+    }
+    a {
+        font-weight: inherit;
+    }
+    small {
+        color: @grey-55;
+        font-weight: normal;
+        font-size: 70%;
+    }
+}
+
+// h1, h2 { .border-bottom-width(1px); border-bottom: solid @grey-20; }
+h1 { .font-size(36px); }
+h2 { .font-size(24px); }
+h3 { .font-size(21px); }
+h4 { .font-size(18px); }
+h5 { .font-size(16px); }
+h6 { .font-size(14px); }
+
+p {
+    margin: 0;
+    .margin-bottom(20px);
+    img {
+        margin: 0;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    .transition(all 0.2s ease-in-out);
+    .no-flick();
+    color: @bodyLinkColor;
+    &:hover,
+    &:focus {
+        color: lighten(@bodyLinkColor, 10%);
+        text-decoration: underline;
+    }
+}
+
+ul, ol {
+    .margin-left(40px);
+}
+
+blockquote,
+blockquote p {
+    .font-size(17px);
+    color: @grey-55;
+    font-style: italic;
+}
+
+blockquote {
+    margin: 0;
+    .margin-left(20px);
+    .margin-bottom(20px);
+    .padding(9px, 20px);
+    .border-left-width(4px);
+    border-left: solid @grey-25;
+    .font-size(16px);
+    font-weight: 400;
+    font-family: "Vollkorn";
+    line-height: @baseLineHeight;
+    cite {
+        display: block;
+        .font-size(12px);
+        color: @grey-75;
+        &:before {
+            content: "\2014 \0020"; }
+        a,
+        a:visited,
+        a:visited {
+            color: @grey-75; }
+    }
+    &.right {
+        .text-right();
+        border-left: none;
+        .border-right-width(1px);
+        border-right: solid @grey-20;
+    }
+}
+
+sub, sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+}
+
+sup {
+    .top(-8px);
+}
+
+sub {
+    .bottom(-4px);
+}​
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+    color: @grey-85;
+}
+
+small {
+    font-size: 80%;
+}
+
+hr {
+    border-width: 0;
+    .border-top-width(1px);
+    border: solid @grey-20;
+    .margin(10px, 0);
+    height: 0;
+    .clearfix();
+    &.large {
+        .margin(20px, 0);
+        .height(8px);
+        background: @grey-10;
+        border: none;
+    }
+}
+
+/**
+ * Site header, footer
+ */
+.site-header,
+.site-footer {
+    .clearfix();
+}
+
+.site-footer {
+    .align-center();
+    .social-icons {
+        .centered-pills();
+    }
+    .copyright {
+        p {
+            .font-size(11px);
+            .margin-bottom(4px);
+        }
+    }
+}
+
+.header-name {
+    .padding-bottom(10px);
+    .align-center();
+    border-bottom: solid @grey-85;
+    .border-bottom-width(2px);
+    a,
+    a:hover {
+        color: @grey-85;
+        text-decoration: none;
+    }
+}
+
+.header-nav {
+    .height(45px);
+    .font-size(16px);
+    .clearfix();
+    a {
+        color: @grey-85;
+    }
+    .nav-home {
+        .pull-left();
+    }
+    .nav-pages {
+        .pull-right();
+        a {
+          &.active {
+              background-color: @grey-5;
+              color: @grey-85;
+          }
+        }
+    }
+}
+
+.avatar {
+    .rounded(450px);
+    .box-shadow(0 2px 3px rgba(0,0,0,.25));
+    border: solid @white;
+    .border-width(2px);
+    .size(96px);
+    margin: auto;
+    padding: 0;
+}
+
+.social-icons {
+    .margin-top(64px);
+    .padding-top(24px);
+    border-top: solid @grey-25;
+    .border-top-width(1px);
+    .nav-pills {
+        >li {
+            .margin-right(4px);
+            >a {
+                .padding(4px, 6px);
+                .size(26px);
+                .rounded(50%);
+                .align-center();
+                color: @white;
+                background-color: @grey-35;
+                &:hover,
+                &.active {
+                    background-color: @grey-5;
+                    color: @grey-85;
+                }
+            }
+        }
+    }
+}
+
+.author-card {
+    margin: 0 auto;
+    .padding-bottom(0);
+    width: 100%;
+    .align-center();
+    .block();
+    h3 {
+        .font-size(19px);
+    }
+    p {
+        .margin-top(16px);
+        .font-size(13px);
+        font-weight: 400;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+    a,
+    a:hover {
+        color: @grey-85;
+        text-decoration: none;
+    }
+    a {
+        .block();
+    }
+}
+
+.bio {
+    .text-center();
+}
+
+
+/**
+ * Custom container
+ */
+.container-narrow {
+    margin: 0 auto;
+    .max-width(700px);
+    >hr {
+        .margin(30px, 0);
+    }
+}
+
+.website-content {
+    .min-height(300px);
+    .padding-top(16px);
+}
+
+
+/**
+ * Posts
+ */
+.posts {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    .margin-top(30px);
+    text-align: justify;
+    h1 {
+        .font-size(26px);
+    }
+    h3, h4 {
+        .margin-top(16px);
+        .margin-bottom(8px);
+    }
+    p {
+        .margin-bottom(16px);
+    }
+    img {
+        .margin(10px);
+    }
+    li {
+        .margin-bottom(15px);
+        .clearfix();
+        span,
+        time {
+            display: inline-block;
+        }
+        span {
+            color: @grey-85;
+        }
+        time {
+            .width(74px);
+            .margin-right(20px);
+        }
+        .permalink {
+           .truncate();
+            max-width: 63%;
+        }
+        .post-tags {
+            .text-right();
+            .pull-right();
+            .margin-top(6px);
+        }
+    }
+}
+
+.post-tags {
+    .font-size(12px);
+}
+
+.post {
+    .footer {
+        font-family: 'Fjalla One';
+        border-top: solid 1px @grey-25;
+        .border-top-width(1px);
+        .font-size(14px);
+        .margin-top(16px);
+        .padding-top(16px);
+        .clearfix();
+    }
+    .publisher {
+        .pull-left();
+    }
+    .post-tags {
+        margin: 0;
+        .pull-right();
+        list-style: none;
+    }
+    .content {
+        .socialbar-container {
+            padding: 20px 0 20px 0;
+        }
+    }
+}
+
+.post-content,
+.page-content {
+    .content(30px); /* from elements.less in assets */
+}
+
+.pagination {
+    width: 100%;
+    .height(30px);
+    .margin-top(10px);
+    .clearfix();
+    .block();
+    .post-prev,
+    .post-next {
+        .padding(10px, 15px);
+    }
+    .post-prev {
+        .pull-left();
+    }
+    .post-next {
+        .pull-right();
+        .text-right();
+    }
+}
+
+.post-pdf {
+    position: relative;
+    .pdf-fullscreen {
+        position: absolute;
+        .bottom(30px);
+        .left(30px);
+        color: #fff;
+        .font-size(12px);
+        .padding(10px);
+        background-color: @bodyLinkColor;
+        border-radius: 7px;
+        .opacity(30);
+        .transition(all 0.2s ease-in-out);
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: 0;
+        &:hover {
+            .opacity(100);
+        }
+    }
+    object {
+        display: block;
+        .min-height(400px);
+    }
+}
+
+// Change Gist font-size
+.gist {
+    .font-size(13px);
+}
+
+@import 'media-queries';
+@import url(http://postach.io/static/themes/_assets/less/login.less);

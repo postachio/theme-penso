@@ -1,0 +1,50 @@
+/*
+ *  Greater than 1200px width
+ */
+// @media screen and (min-width: 75em) {
+//     body { font-size: 125%; }
+// }
+
+/*
+ *  Less than 959px width
+ */
+@media screen and (max-width: 59.9375em) {
+
+}
+
+/*
+ *  Less than 767px width
+ */
+@media screen and (max-width: 47.9375em) {
+    .posts {
+        li {
+            .permalink {
+                max-width: 100%;
+                .block();
+                overflow: visible;
+                white-space: normal;
+            }
+        }
+    }
+}
+
+/*
+ *  Less than 479px width
+ */
+@media screen and (max-width: 29.9375em) {
+    .avatar {
+        .size(72px);
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    .header-name {
+        h1 {
+            .font-size(30px);
+        }
+        p {
+            .font-size(15px);
+        }
+    }
+}
